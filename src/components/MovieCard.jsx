@@ -1,29 +1,19 @@
 import React from "react";
-import Link from "react-router-dom";
 
 const MovieCard = ({
-  movie: {
-    id,
-    title,
-    vote_average,
-    poster_path,
-    release_date,
-    original_language,
-  },
+  movie: { title, vote_average, poster_path, release_date, original_language },
 }) => {
   return (
     <div className="movie-card">
-      <Link to={`/movie/${id}`}>
-        <img
-          loading="lazy"
-          src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : "/no-poster.png"
-          }
-          alt={`Poster of ${title}`}
-        />
-      </Link>
+      <img
+        loading="lazy"
+        src={
+          poster_path
+            ? `https://image.tmdb.org/t/p/w500${poster_path}`
+            : "/no-poster.png"
+        }
+        alt={`Poster of ${title}`}
+      />
 
       <div className="mt-4">
         <h3>{title}</h3>
@@ -34,7 +24,7 @@ const MovieCard = ({
 
           <p>{vote_average ? vote_average.toFixed(1) : "N/A"}</p>
           <span>•</span>
-          <p className="lang">{original_language}</p>
+          <p className="lang">{original_language.toUpperCase()}</p>
 
           <span>•</span>
           <p className="year">
